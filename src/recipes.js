@@ -32,7 +32,7 @@ app.get('/recipe',(req,res)=>{
     cuisine = req.query.cuisine;
     diet = req.query.diet;
 
-    url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=28de1c31664a460c8c095de681c38365';
+    url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=28de1c31664a460c8c095de681c38365&number=1';
     // diet
 
     diet && (url+=`&diet=${diet}`);
@@ -46,6 +46,7 @@ app.get('/recipe',(req,res)=>{
         parsedBody = JSON.parse(body);
         resultCount = parsedBody.totalResults;
         results = parsedBody.results;
+        console.log(body);
         error && (
             res.send({
                 
