@@ -42,9 +42,7 @@ app.get('/recipe',(req,res)=>{
     query && (url+=`&query=${query}`)
     // console.log(url);
     request.get(url,(error, {body})=>{
-        console.log(url);
-        // console.log(error);
-        // console.log(body);
+
         parsedBody = JSON.parse(body);
         resultCount = parsedBody.totalResults;
         results = parsedBody.results;
